@@ -222,6 +222,25 @@ const memoizeNesne = useMemo(() => {
           ölçün. Erken optimizasyon, kodun okunabilirliğini ve bakımını zorlaştırabilir.
         </p>
       </div>
+      
+      <div style={{ marginTop: '40px', textAlign: 'center' }}>
+        <a 
+          href="/" 
+          className="home-link"
+          style={{
+            display: 'inline-block',
+            padding: '10px 20px',
+            backgroundColor: darkMode ? '#444' : '#0066cc',
+            color: 'white',
+            textDecoration: 'none',
+            borderRadius: '4px',
+            fontWeight: 'bold',
+            transition: 'background-color 0.2s'
+          }}
+        >
+          Ana Sayfaya Dön
+        </a>
+      </div>
     </div>
   );
 }
