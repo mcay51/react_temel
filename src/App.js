@@ -8,6 +8,7 @@ import MerhabaSayfasi from './pages/MerhabaSayfasi';
 import SayacSayfasi from './pages/SayacSayfasi';
 import TodoListSayfasi from './pages/TodoListSayfasi';
 import UseStateSayfasi from './pages/hooks/UseStateSayfasi';
+import UseEffectSayfasi from './pages/hooks/UseEffectSayfasi';
 
 /**
  * App Bileşeni
@@ -41,6 +42,7 @@ function App() {
           
           {/* Hooks sayfaları için route'lar */}
           <Route path="/hooks/usestate" element={<UseStateSayfasi />} />
+          <Route path="/hooks/useeffect" element={<UseEffectSayfasi />} />
         </Routes>
       </div>
     </Router>

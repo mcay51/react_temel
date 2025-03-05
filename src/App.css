@@ -186,6 +186,18 @@ body {
   padding: 1rem;
   border-radius: 4px;
   overflow-x: auto;
+  font-family: monospace;
+  white-space: pre-wrap;
+}
+
+/* Yaşam Döngüsü Notları */
+.lifecycle-note {
+  background-color: #fff3cd;
+  border-left: 4px solid #ffc107;
+  padding: 0.8rem;
+  margin: 1rem 0;
+  font-size: 0.9rem;
+  border-radius: 0 4px 4px 0;
 }
 
 .home-link {
@@ -244,6 +256,39 @@ form button {
 
 form button:hover {
   background-color: #0055aa;
+}
+
+/* useEffect Sayfası Stilleri */
+.loading {
+  color: #0066cc;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.error {
+  color: #ff4d4d;
+  font-weight: bold;
+}
+
+.data-container {
+  background-color: #f0f7ff;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-top: 1rem;
+}
+
+.window-size {
+  background-color: #f0f7ff;
+  padding: 1rem;
+  border-radius: 4px;
+  display: inline-block;
+  margin: 1rem 0;
+}
+
+.note {
+  font-style: italic;
+  color: #666;
+  margin-top: 1rem;
 }
 
 /* TodoList Stilleri */
