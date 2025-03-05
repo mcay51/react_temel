@@ -13,6 +13,7 @@ import TodoListSayfasi from './pages/TodoListSayfasi';
 import UseStateSayfasi from './pages/hooks/UseStateSayfasi';
 import UseEffectSayfasi from './pages/hooks/UseEffectSayfasi';
 import UseContextSayfasi from './pages/UseContextSayfasi';
+import UseRefSayfasi from './pages/UseRefSayfasi';
 
 /**
  * App Bileşeni
@@ -50,6 +51,7 @@ function App() {
             <Route path="/hooks/usestate" element={<UseStateSayfasi />} />
             <Route path="/hooks/useeffect" element={<UseEffectSayfasi />} />
             <Route path="/hooks/usecontext" element={<UseContextSayfasi />} />
+            <Route path="/hooks/useref" element={<UseRefSayfasi />} />
           </Routes>
         </div>
       </Router>

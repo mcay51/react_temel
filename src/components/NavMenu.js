@@ -62,6 +62,12 @@ function NavMenu() {
           title: 'useContext Hook',
           path: '/hooks/usecontext',
           description: 'Bileşen ağacı boyunca veri paylaşımı'
+        },
+        {
+          id: 'useRef',
+          title: 'useRef Hook',
+          path: '/hooks/useref',
+          description: 'DOM elemanlarına erişim ve değerleri saklama'
         }
       ]
     },

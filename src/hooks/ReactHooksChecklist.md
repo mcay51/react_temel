@@ -22,7 +22,7 @@ Bu dosya, React Hooks'ları öğrenme sürecinizi takip etmenize yardımcı olac
   - Context API ile birlikte kullanılır
   - `const value = useContext(MyContext);` şeklinde kullanılır
 
-- [ ] **useRef**
+- [x] **useRef**
   - DOM elemanlarına doğrudan erişim sağlar
   - Render'lar arasında değerleri saklar (re-render'ı tetiklemeden)
   - `const myRef = useRef(initialValue);` şeklinde kullanılır
