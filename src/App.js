@@ -2,6 +2,9 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 
+// ThemeProvider'ı içe aktarıyoruz
+import { ThemeProvider } from './contexts/ThemeContext';
+
 // Sayfaları içe aktarıyoruz
 import AnaSayfa from './pages/AnaSayfa';
 import MerhabaSayfasi from './pages/MerhabaSayfasi';
@@ -9,6 +12,12 @@ import SayacSayfasi from './pages/SayacSayfasi';
 import TodoListSayfasi from './pages/TodoListSayfasi';
 import UseStateSayfasi from './pages/hooks/UseStateSayfasi';
 import UseEffectSayfasi from './pages/hooks/UseEffectSayfasi';
+import UseContextSayfasi from './pages/UseContextSayfasi';
+import UseRefSayfasi from './pages/UseRefSayfasi';
+import UseReducerSayfasi from './pages/UseReducerSayfasi';
+import UseMemoSayfasi from './pages/hooks/UseMemoSayfasi';
+import ReactMemoSayfasi from './pages/hooks/ReactMemoSayfasi';
+import UseCallbackSayfasi from './pages/hooks/UseCallbackSayfasi';
 
 /**
  * App Bileşeni
@@ -21,31 +30,40 @@ import UseEffectSayfasi from './pages/hooks/UseEffectSayfasi';
  */
 function App() {
   return (
-    <Router>
-      <div className="App">
-        {/* 
-          Routes bileşeni, URL'ye göre hangi bileşenin render edileceğini belirler.
-          Her Route, belirli bir URL yolu (path) için bir bileşen tanımlar.
-        */}
-        <Routes>
-          {/* Ana sayfa için route */}
-          <Route path="/" element={<AnaSayfa />} />
-          
-          {/* Merhaba sayfası için route */}
-          <Route path="/merhaba" element={<MerhabaSayfasi />} />
-          
-          {/* Sayaç sayfası için route */}
-          <Route path="/sayac" element={<SayacSayfasi />} />
-          
-          {/* TodoList sayfası için route */}
-          <Route path="/todo" element={<TodoListSayfasi />} />
-          
-          {/* Hooks sayfaları için route'lar */}
-          <Route path="/hooks/usestate" element={<UseStateSayfasi />} />
-          <Route path="/hooks/useeffect" element={<UseEffectSayfasi />} />
-        </Routes>
-      </div>
-    </Router>
+    // ThemeProvider ile tüm uygulamayı sarıyoruz
+    <ThemeProvider>
+      <Router>
+        <div className="App">
+          {/* 
+            Routes bileşeni, URL'ye göre hangi bileşenin render edileceğini belirler.
+            Her Route, belirli bir URL yolu (path) için bir bileşen tanımlar.
+          */}
+          <Routes>
+            {/* Ana sayfa için route */}
+            <Route path="/" element={<AnaSayfa />} />
+            
+            {/* Merhaba sayfası için route */}
+            <Route path="/merhaba" element={<MerhabaSayfasi />} />
+            
+            {/* Sayaç sayfası için route */}
+            <Route path="/sayac" element={<SayacSayfasi />} />
+            
+            {/* TodoList sayfası için route */}
+            <Route path="/todo" element={<TodoListSayfasi />} />
+            
+            {/* Hooks sayfaları için route'lar */}
+            <Route path="/hooks/usestate" element={<UseStateSayfasi />} />
+            <Route path="/hooks/useeffect" element={<UseEffectSayfasi />} />
+            <Route path="/hooks/usecontext" element={<UseContextSayfasi />} />
+            <Route path="/hooks/useref" element={<UseRefSayfasi />} />
+            <Route path="/hooks/usereducer" element={<UseReducerSayfasi />} />
+            <Route path="/hooks/usememo" element={<UseMemoSayfasi />} />
+            <Route path="/hooks/reactmemo" element={<ReactMemoSayfasi />} />
+            <Route path="/hooks/usecallback" element={<UseCallbackSayfasi />} />
+          </Routes>
+        </div>
+      </Router>
+    </ThemeProvider>
   );
 }
 

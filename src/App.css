@@ -140,6 +140,53 @@ body {
   font-size: 0.9rem;
 }
 
+/* Alt Menü Başlık Stilleri */
+.submenu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7rem 0;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.submenu-header h4 {
+  margin: 0;
+  color: #0066cc;
+  font-size: 1rem;
+}
+
+.sub-submenu {
+  list-style-type: none;
+  padding: 0 0 0 1rem;
+  margin: 0.5rem 0;
+  border-left: 2px solid #e6f2ff;
+}
+
+.sub-submenu li {
+  padding: 0.8rem;
+  border-top: 1px solid #f0f0f0;
+  transition: background-color 0.2s;
+}
+
+.sub-submenu li:hover {
+  background-color: #f8f8f8;
+}
+
+.sub-submenu a {
+  color: #0066cc;
+  text-decoration: none;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.sub-submenu p {
+  margin: 0;
+  color: #666;
+  font-size: 0.85rem;
+}
+
 /* Sayfa Stilleri */
 .page-container {
   max-width: 800px;

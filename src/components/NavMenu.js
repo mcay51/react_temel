@@ -46,22 +46,79 @@ function NavMenu() {
       isOpen: false, // Varsayılan olarak kapalı
       subItems: [
         {
-          id: 'useState',
-          title: 'useState Hook',
-          path: '/hooks/usestate',
-          description: 'Fonksiyonel bileşenlerde state yönetimi'
+          id: 'temelHooks',
+          title: 'Temel Hooks',
+          description: 'React\'ın en temel ve sık kullanılan hook\'ları',
+          isSubMenu: true,
+          isOpen: false,
+          subItems: [
+            {
+              id: 'useState',
+              title: 'useState Hook',
+              path: '/hooks/usestate',
+              description: 'Fonksiyonel bileşenlerde state yönetimi'
+            },
+            {
+              id: 'useEffect',
+              title: 'useEffect Hook',
+              path: '/hooks/useeffect',
+              description: 'Yan etkileri yönetme ve yaşam döngüsü olaylarını takip etme'
+            }
+          ]
         },
         {
-          id: 'useEffect',
-          title: 'useEffect Hook',
-          path: '/hooks/useeffect',
-          description: 'Yan etkileri yönetme ve yaşam döngüsü olaylarını takip etme'
+          id: 'ileriHooks',
+          title: 'İleri Seviye Hooks',
+          description: 'Daha karmaşık senaryolar için kullanılan hook\'lar',
+          isSubMenu: true,
+          isOpen: false,
+          subItems: [
+            {
+              id: 'useContext',
+              title: 'useContext Hook',
+              path: '/hooks/usecontext',
+              description: 'Bileşen ağacı boyunca veri paylaşımı'
+            },
+            {
+              id: 'useRef',
+              title: 'useRef Hook',
+              path: '/hooks/useref',
+              description: 'DOM elemanlarına erişim ve değerleri saklama'
+            },
+            {
+              id: 'useReducer',
+              title: 'useReducer Hook',
+              path: '/hooks/usereducer',
+              description: 'Karmaşık state mantığı için Redux benzeri state yönetimi'
+            }
+          ]
         },
         {
-          id: 'useContext',
-          title: 'useContext Hook',
-          path: '/hooks/usecontext',
-          description: 'Bileşen ağacı boyunca veri paylaşımı'
+          id: 'optimizasyonHooks',
+          title: 'Optimizasyon Hooks',
+          description: 'Performans optimizasyonu için kullanılan hook\'lar',
+          isSubMenu: true,
+          isOpen: false,
+          subItems: [
+            {
+              id: 'useMemo',
+              title: 'useMemo Hook',
+              path: '/hooks/usememo',
+              description: 'Hesaplama yoğun işlemlerin sonuçlarını önbelleğe alma'
+            },
+            {
+              id: 'useCallback',
+              title: 'useCallback Hook',
+              path: '/hooks/usecallback',
+              description: 'Fonksiyonları önbelleğe alarak gereksiz render\'ları önleme'
+            },
+            {
+              id: 'reactMemo',
+              title: 'React.memo',
+              path: '/hooks/reactmemo',
+              description: 'Bileşenleri önbelleğe alarak gereksiz render\'ları önleme'
+            }
+          ]
         }
       ]
     },
@@ -87,13 +144,26 @@ function NavMenu() {
     }
   ];
 
-  // Her bir ana menü öğesinin açık/kapalı durumunu tutacak state
-  const [openMenus, setOpenMenus] = useState(
-    menuItems.reduce((acc, item) => {
+  // Her bir ana menü öğesinin ve alt menülerin açık/kapalı durumunu tutacak state
+  const [openMenus, setOpenMenus] = useState(() => {
+    // Ana menülerin başlangıç durumunu ayarla
+    const initialState = menuItems.reduce((acc, item) => {
       acc[item.id] = item.isOpen;
+      
+      // Alt menüler için de durum oluştur
+      if (item.subItems) {
+        item.subItems.forEach(subItem => {
+          if (subItem.isSubMenu) {
+            acc[subItem.id] = subItem.isOpen || false;
+          }
+        });
+      }
+      
       return acc;
-    }, {})
-  );
+    }, {});
+    
+    return initialState;
+  });
 
   // Menü öğesinin açık/kapalı durumunu değiştiren fonksiyon
   const toggleMenu = (menuId) => {
@@ -126,10 +196,40 @@ function NavMenu() {
               <ul className="submenu">
                 {menu.subItems.map(subItem => (
                   <li key={subItem.id}>
-                    <Link to={subItem.path}>
-                      {subItem.title}
-                    </Link>
-                    <p>{subItem.description}</p>
+                    {subItem.isSubMenu ? (
+                      <>
+                        <div 
+                          className="submenu-header" 
+                          onClick={() => toggleMenu(subItem.id)}
+                        >
+                          <h4>{subItem.title}</h4>
+                          <span className={`menu-arrow ${openMenus[subItem.id] ? 'open' : ''}`}>
+                            ▼
+                          </span>
+                        </div>
+                        <p>{subItem.description}</p>
+                        
+                        {openMenus[subItem.id] && (
+                          <ul className="sub-submenu">
+                            {subItem.subItems.map(nestedItem => (
+                              <li key={nestedItem.id}>
+                                <Link to={nestedItem.path}>
+                                  {nestedItem.title}
+                                </Link>
+                                <p>{nestedItem.description}</p>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </>
+                    ) : (
+                      <>
+                        <Link to={subItem.path}>
+                          {subItem.title}
+                        </Link>
+                        <p>{subItem.description}</p>
+                      </>
+                    )}
                   </li>
                 ))}
               </ul>
