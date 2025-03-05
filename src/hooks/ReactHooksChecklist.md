@@ -65,12 +65,77 @@ Bu dosya, React Hooks'ları öğrenme sürecinizi takip etmenize yardımcı olac
 
 ## Özel Hooks Geliştirme
 
-- [ ] **Custom Hooks**
+- [x] **Custom Hooks**
   - Kendi özel hook'larınızı oluşturma
   - Kod tekrarını azaltır
   - Mantığı yeniden kullanılabilir hale getirir
   - `use` ile başlayan fonksiyonlar olarak tanımlanır
   - Örnek: `useLocalStorage`, `useWindowSize`, `useFetch` vb.
+
+## Öğrendiğimiz Özel Hook Örnekleri
+
+- [x] **useLocalStorage**: Tarayıcının localStorage API'sini kullanarak state'i kalıcı hale getirir
+  ```jsx
+  function useLocalStorage(key, initialValue) {
+    const [storedValue, setStoredValue] = useState(() => {
+      try {
+        const item = window.localStorage.getItem(key);
+        return item ? JSON.parse(item) : initialValue;
+      } catch (error) {
+        return initialValue;
+      }
+    });
+
+    const setValue = value => {
+      try {
+        setStoredValue(value);
+        window.localStorage.setItem(key, JSON.stringify(value));
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    return [storedValue, setValue];
+  }
+  ```
+
+- [x] **useCounter**: Sayaç işlemlerini yönetmek için kullanılan bir hook
+  ```jsx
+  function useCounter(initialValue = 0, step = 1) {
+    const [count, setCount] = useState(initialValue);
+    
+    const increment = () => setCount(prevCount => prevCount + step);
+    const decrement = () => setCount(prevCount => prevCount - step);
+    const reset = () => setCount(initialValue);
+    const setCountValue = (value) => setCount(value);
+    
+    return { count, increment, decrement, reset, setCount: setCountValue };
+  }
+  ```
+
+- [x] **useForm**: Form işlemlerini yönetmek için kullanılan bir hook
+  ```jsx
+  function useForm(initialValues = {}) {
+    const [values, setValues] = useState(initialValues);
+    
+    const handleChange = (event) => {
+      const { name, value, type, checked } = event.target;
+      setValues(prevValues => ({
+        ...prevValues,
+        [name]: type === 'checkbox' ? checked : value
+      }));
+    };
+    
+    const handleSubmit = (callback) => (event) => {
+      if (event) event.preventDefault();
+      if (callback) callback(values);
+    };
+    
+    const resetForm = () => setValues(initialValues);
+    
+    return { values, handleChange, handleSubmit, resetForm, setValues };
+  }
+  ```
 
 ## Ek Hooks (React 18+)
 
