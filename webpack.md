@@ -43,56 +43,6 @@ flowchart TB
   D["Tarayıcı"] --> C
   E["Geliştirici"] --> A
 ```
-Webpack'in ne olduğunu ve nasıl çalıştığını bir UML diyagramı ile anlatmak istiyorum. Webpack, modern JavaScript uygulamaları için kullanılan bir modül paketleyicidir (module bundler).
-
-````artifact
-id: webpack-diagram
-name: Webpack UML Diyagramı
-type: mermaid
-content: |-
-  flowchart TB
-    subgraph "Webpack Ekosistemi"
-        A[Kaynak Kodları] --> B[Webpack]
-        B --> C[Çıktı Dosyaları]
-        
-        subgraph "Giriş Dosyaları"
-            A1[JavaScript (.js, .jsx)]
-            A2[CSS/SCSS (.css, .scss)]
-            A3[Resimler (.png, .jpg)]
-            A4[Diğer Dosyalar]
-            
-            A1 --> A
-            A2 --> A
-            A3 --> A
-            A4 --> A
-        end
-        
-        subgraph "Webpack Bileşenleri"
-            B1[Entry Points\nGiriş Noktaları]
-            B2[Loaders\nYükleyiciler]
-            B3[Plugins\nEklentiler]
-            B4[Output\nÇıktı]
-            
-            B1 --> B
-            B2 --> B
-            B3 --> B
-            B --> B4
-        end
-        
-        subgraph "Çıktı"
-            C1[bundle.js]
-            C2[style.css]
-            C3[assets/]
-            
-            C --> C1
-            C --> C2
-            C --> C3
-        end
-    end
-    
-    D[Tarayıcı] --> C
-    E[Geliştirici] --> A
-````
 
 ## Webpack Nedir?
 
