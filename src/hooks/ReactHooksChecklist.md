@@ -28,7 +28,7 @@ Bu dosya, React Hooks'ları öğrenme sürecinizi takip etmenize yardımcı olac
   - `const myRef = useRef(initialValue);` şeklinde kullanılır
   - `myRef.current` ile değere erişilir
 
-- [ ] **useReducer**
+- [x] **useReducer**
   - Karmaşık state mantığı için useState'in alternatifidir
   - Redux benzeri bir state yönetimi sağlar
   - `const [state, dispatch] = useReducer(reducer, initialState);` şeklinde kullanılır

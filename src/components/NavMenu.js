@@ -68,6 +68,12 @@ function NavMenu() {
           title: 'useRef Hook',
           path: '/hooks/useref',
           description: 'DOM elemanlarına erişim ve değerleri saklama'
+        },
+        {
+          id: 'useReducer',
+          title: 'useReducer Hook',
+          path: '/hooks/usereducer',
+          description: 'Karmaşık state mantığı için Redux benzeri state yönetimi'
         }
       ]
     },
