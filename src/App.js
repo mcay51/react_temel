@@ -1,60 +1,46 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-import Merhaba from './components/Merhaba';
-import Sayac from './components/Sayac';
-import TodoList from './components/TodoList';
+
+// Sayfaları içe aktarıyoruz
+import AnaSayfa from './pages/AnaSayfa';
+import MerhabaSayfasi from './pages/MerhabaSayfasi';
+import SayacSayfasi from './pages/SayacSayfasi';
+import TodoListSayfasi from './pages/TodoListSayfasi';
+
 /**
  * App Bileşeni
  * 
- * Bu, uygulamanın ana bileşenidir. Genellikle diğer bileşenleri içerir ve
- * uygulamanın genel yapısını oluşturur.
+ * Bu bileşen, React Router kullanarak sayfa yönlendirmesini yönetir.
+ * Farklı URL'ler için farklı bileşenleri render eder.
  * 
- * React uygulamaları, iç içe geçmiş bileşenlerden oluşan bir ağaç yapısına sahiptir.
+ * React Router, tek sayfa uygulamalarında (SPA) sayfa yönlendirmesi sağlar.
+ * Tarayıcının URL'sini değiştirir ancak sayfayı yeniden yüklemez.
  */
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
+    <Router>
+      <div className="App">
         {/* 
-          Merhaba bileşenini kullanıyoruz ve ona 'isim' adında bir prop gönderiyoruz.
-          Props, bileşenlere veri aktarmanın yoludur.
-          Burada "React Geliştirici" değerini Merhaba bileşenine gönderiyoruz.
+          Routes bileşeni, URL'ye göre hangi bileşenin render edileceğini belirler.
+          Her Route, belirli bir URL yolu (path) için bir bileşen tanımlar.
         */}
-        <Merhaba isim="React Geliştirici" />
-        <p>
-          Bu bir React uygulamasıdır.
-        </p>
-        {/* 
-          Sayac bileşeni, React'taki state (durum) kavramını göstermektedir.
-          State, bileşenin kendi içinde sakladığı ve değişebilen verilerdir.
+        <Routes>
+          {/* Ana sayfa için route */}
+          <Route path="/" element={<AnaSayfa />} />
           
-          Sayac bileşeni kendi içinde bir sayı değeri tutar ve bu değeri
-          artırabilir. State değiştiğinde bileşen otomatik olarak yeniden render edilir.
+          {/* Merhaba sayfası için route */}
+          <Route path="/merhaba" element={<MerhabaSayfasi />} />
           
-          Props ile veri aktarımından farklı olarak, state bileşenin kendi içinde
-          yönetilir ve değiştirilebilir.
-        */}
-        <p><Sayac /></p>
-        
-        {/* 
-          TodoList bileşeni, React'ta daha karmaşık bir uygulama örneğidir.
-          Bu bileşen şunları göstermektedir:
+          {/* Sayaç sayfası için route */}
+          <Route path="/sayac" element={<SayacSayfasi />} />
           
-          1. Çoklu State Kullanımı: Birden fazla state değişkeni kullanma
-          2. Form Yönetimi: Kullanıcı girdisini alma ve işleme
-          3. Liste Render Etme: Dinamik olarak liste öğelerini oluşturma
-          4. CRUD İşlemleri: Veri ekleme, okuma, güncelleme ve silme işlemleri
-          5. Event Handling: Kullanıcı etkileşimlerini yönetme
-          
-          TodoList, React'ın temel kavramlarını bir arada kullanarak
-          gerçek dünya uygulamalarının nasıl oluşturulduğunu gösterir.
-        */}
-        <TodoList />
-      </header>
-      
-    </div>
+          {/* TodoList sayfası için route */}
+          <Route path="/todo" element={<TodoListSayfasi />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
-// App bileşenini dışa aktarıyoruz, böylece index.js dosyasında kullanılabilir
 export default App;
