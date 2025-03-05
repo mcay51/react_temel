@@ -40,7 +40,7 @@ Bu dosya, React Hooks'ları öğrenme sürecinizi takip etmenize yardımcı olac
   - Gereksiz hesaplamaları önler
   - `const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);` şeklinde kullanılır
 
-- [ ] **useCallback**
+- [x] **useCallback**
   - Fonksiyonları önbelleğe alır
   - Child bileşenlere geçirilen fonksiyonların gereksiz yeniden oluşturulmasını önler
   - `const memoizedCallback = useCallback(() => { doSomething(a, b); }, [a, b]);` şeklinde kullanılır
