@@ -15,6 +15,7 @@ import UseEffectSayfasi from './pages/hooks/UseEffectSayfasi';
 import UseContextSayfasi from './pages/UseContextSayfasi';
 import UseRefSayfasi from './pages/UseRefSayfasi';
 import UseReducerSayfasi from './pages/UseReducerSayfasi';
+import UseMemoSayfasi from './pages/hooks/UseMemoSayfasi';
 
 /**
  * App Bileşeni
@@ -54,6 +55,7 @@ function App() {
             <Route path="/hooks/usecontext" element={<UseContextSayfasi />} />
             <Route path="/hooks/useref" element={<UseRefSayfasi />} />
             <Route path="/hooks/usereducer" element={<UseReducerSayfasi />} />
+            <Route path="/hooks/usememo" element={<UseMemoSayfasi />} />
           </Routes>
         </div>
       </Router>

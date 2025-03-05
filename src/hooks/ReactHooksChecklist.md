@@ -35,7 +35,7 @@ Bu dosya, React Hooks'ları öğrenme sürecinizi takip etmenize yardımcı olac
 
 ## Optimizasyon Hooks
 
-- [ ] **useMemo**
+- [x] **useMemo**
   - Hesaplama yoğun işlemlerin sonuçlarını önbelleğe alır
   - Gereksiz hesaplamaları önler
   - `const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);` şeklinde kullanılır
