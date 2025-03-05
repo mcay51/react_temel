@@ -119,6 +119,12 @@ function NavMenu() {
               description: 'Bileşenleri önbelleğe alarak gereksiz render\'ları önleme'
             }
           ]
+        },
+        {
+          id: 'customHooks',
+          title: 'Özel Hook\'lar',
+          path: '/hooks/customhooks',
+          description: 'Kendi özel hook\'larınızı oluşturarak kod tekrarını azaltma ve mantığı yeniden kullanılabilir hale getirme'
         }
       ]
     },
