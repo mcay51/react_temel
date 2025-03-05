@@ -7,6 +7,7 @@ import AnaSayfa from './pages/AnaSayfa';
 import MerhabaSayfasi from './pages/MerhabaSayfasi';
 import SayacSayfasi from './pages/SayacSayfasi';
 import TodoListSayfasi from './pages/TodoListSayfasi';
+import UseStateSayfasi from './pages/hooks/UseStateSayfasi';
 
 /**
  * App Bileşeni
@@ -37,6 +38,9 @@ function App() {
           
           {/* TodoList sayfası için route */}
           <Route path="/todo" element={<TodoListSayfasi />} />
+          
+          {/* Hooks sayfaları için route'lar */}
+          <Route path="/hooks/usestate" element={<UseStateSayfasi />} />
         </Routes>
       </div>
     </Router>
