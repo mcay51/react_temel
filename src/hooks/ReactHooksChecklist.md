@@ -45,6 +45,12 @@ Bu dosya, React Hooks'ları öğrenme sürecinizi takip etmenize yardımcı olac
   - Child bileşenlere geçirilen fonksiyonların gereksiz yeniden oluşturulmasını önler
   - `const memoizedCallback = useCallback(() => { doSomething(a, b); }, [a, b]);` şeklinde kullanılır
 
+- [x] **React.memo**
+  - Fonksiyonel bileşenleri önbelleğe alır (memoize eder)
+  - Bileşenin props'ları değişmediği sürece yeniden render edilmesini önler
+  - `const MemoizedComponent = React.memo(MyComponent);` şeklinde kullanılır
+  - Class bileşenlerindeki PureComponent'e benzer işlev görür
+
 ## Özel Durumlar İçin Hooks
 
 - [ ] **useLayoutEffect**

@@ -111,6 +111,12 @@ function NavMenu() {
               title: 'useCallback Hook',
               path: '/hooks/usecallback',
               description: 'Fonksiyonları önbelleğe alarak gereksiz render\'ları önleme'
+            },
+            {
+              id: 'reactMemo',
+              title: 'React.memo',
+              path: '/hooks/reactmemo',
+              description: 'Bileşenleri önbelleğe alarak gereksiz render\'ları önleme'
             }
           ]
         }
