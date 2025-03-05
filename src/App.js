@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import Merhaba from './components/Merhaba';
 import Sayac from './components/Sayac';
+import TodoList from './components/TodoList';
 /**
  * App Bileşeni
  * 
@@ -34,6 +35,21 @@ function App() {
           yönetilir ve değiştirilebilir.
         */}
         <p><Sayac /></p>
+        
+        {/* 
+          TodoList bileşeni, React'ta daha karmaşık bir uygulama örneğidir.
+          Bu bileşen şunları göstermektedir:
+          
+          1. Çoklu State Kullanımı: Birden fazla state değişkeni kullanma
+          2. Form Yönetimi: Kullanıcı girdisini alma ve işleme
+          3. Liste Render Etme: Dinamik olarak liste öğelerini oluşturma
+          4. CRUD İşlemleri: Veri ekleme, okuma, güncelleme ve silme işlemleri
+          5. Event Handling: Kullanıcı etkileşimlerini yönetme
+          
+          TodoList, React'ın temel kavramlarını bir arada kullanarak
+          gerçek dünya uygulamalarının nasıl oluşturulduğunu gösterir.
+        */}
+        <TodoList />
       </header>
       
     </div>
