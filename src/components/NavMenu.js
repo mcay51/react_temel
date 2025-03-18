@@ -129,6 +129,20 @@ function NavMenu() {
       ]
     },
     {
+      id: 'performance',
+      title: 'Performans Optimizasyonu',
+      description: 'React uygulamalarında performans iyileştirme teknikleri',
+      isOpen: false, // Varsayılan olarak kapalı
+      subItems: [
+        {
+          id: 'lazyLoading',
+          title: 'Lazy Loading ve Code Splitting',
+          path: '/examples/lazyloading',
+          description: 'React.lazy ve Suspense kullanarak bileşenleri talep üzerine yükleme'
+        }
+      ]
+    },
+    {
       id: 'advanced',
       title: 'İleri Seviye Konular',
       description: 'Daha karmaşık React kavramları',

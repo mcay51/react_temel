@@ -43,6 +43,8 @@
 - [ ] Redux Toolkit ile modern Redux kullanımı
 - [ ] Thunk middleware ile asenkron işlemler
 
+### Alternatif State Yönetimi
+- [ ] Zustand veya Jotai gibi hafif state yönetim kütüphaneleri
 
 ## Bölüm 4: Form Yönetimi ve Kullanıcı Etkileşimi
 
@@ -66,11 +68,106 @@
 - [ ] Gereksiz render'ları önleme teknikleri
 - [ ] List virtualization (react-window, react-virtualized)
 
-### Uygulama Optimizasyonu
-- [ ] Lazy loading ve React.lazy
-- [ ] Code splitting
+### Code Splitting ve Lazy Loading
+- [ ] React.lazy ve Suspense ile bileşen lazy loading
+  ```jsx
+  // React.lazy ile bileşen lazy loading örneği
+  import React, { Suspense, lazy } from 'react';
+  
+  // Bileşeni lazy loading ile import etme
+  const HeavyComponent = lazy(() => import('./HeavyComponent'));
+  
+  function MyComponent() {
+    return (
+      <div>
+        <h1>Ana İçerik Her Zaman Yüklenir</h1>
+        
+        {/* Suspense, lazy loading edilecek bileşen yüklenene kadar fallback gösterir */}
+        <Suspense fallback={<div>Yükleniyor...</div>}>
+          <HeavyComponent />
+        </Suspense>
+      </div>
+    );
+  }
+  ```
+
+- [ ] Route-based code splitting
+  ```jsx
+  // React Router ile route-based code splitting örneği
+  import { BrowserRouter, Routes, Route } from 'react-router-dom';
+  import React, { Suspense, lazy } from 'react';
+  
+  // Sayfaları lazy loading ile import etme
+  const Home = lazy(() => import('./pages/Home'));
+  const About = lazy(() => import('./pages/About'));
+  const Dashboard = lazy(() => import('./pages/Dashboard'));
+  
+  function App() {
+    return (
+      <BrowserRouter>
+        <Suspense fallback={<div>Sayfa Yükleniyor...</div>}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+          </Routes>
+        </Suspense>
+      </BrowserRouter>
+    );
+  }
+  ```
+
+- [ ] Dynamic imports ve chunk names
+  ```jsx
+  // Chunk adlandırma ile dynamic import örneği (webpack için)
+  const DataVisualization = lazy(() => import(
+    /* webpackChunkName: "data-viz" */ 
+    './components/DataVisualization'
+  ));
+  ```
+
+- [ ] Error boundary'ler ile lazy loading error handling
+  ```jsx
+  // Error Boundary ile Lazy Loading hatalarını yakalama
+  class ErrorBoundary extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = { hasError: false };
+    }
+  
+    static getDerivedStateFromError(error) {
+      return { hasError: true };
+    }
+  
+    componentDidCatch(error, errorInfo) {
+      console.error("Lazy loading hatası:", error, errorInfo);
+    }
+  
+    render() {
+      if (this.state.hasError) {
+        return <h2>Bileşen yüklenirken bir hata oluştu.</h2>;
+      }
+  
+      return this.props.children;
+    }
+  }
+  
+  function MyApp() {
+    return (
+      <ErrorBoundary>
+        <Suspense fallback={<div>Yükleniyor...</div>}>
+          <LazyComponent />
+        </Suspense>
+      </ErrorBoundary>
+    );
+  }
+  ```
+
+### Diğer Performans Optimizasyonları
 - [ ] React Profiler ile performans analizi
 - [ ] Web Vitals ve performans metrikleri
+- [ ] Bundle size analizi ve optimizasyonu
+- [ ] Lighthouse ve performans auditing
 
 ## Bölüm 6: Test Yazma
 

@@ -19,6 +19,7 @@ import UseMemoSayfasi from './pages/hooks/UseMemoSayfasi';
 import ReactMemoSayfasi from './pages/hooks/ReactMemoSayfasi';
 import UseCallbackSayfasi from './pages/hooks/UseCallbackSayfasi';
 import CustomHooksSayfasi from './pages/hooks/CustomHooksSayfasi';
+import LazyLoadingExample from './examples/LazyLoadingExample';
 
 /**
  * App Bileşeni
@@ -62,6 +63,9 @@ function App() {
             <Route path="/hooks/reactmemo" element={<ReactMemoSayfasi />} />
             <Route path="/hooks/usecallback" element={<UseCallbackSayfasi />} />
             <Route path="/hooks/customhooks" element={<CustomHooksSayfasi />} />
+            
+            {/* Performans Optimizasyonu örnekleri için route'lar */}
+            <Route path="/examples/lazyloading" element={<LazyLoadingExample />} />
           </Routes>
         </div>
       </Router>
